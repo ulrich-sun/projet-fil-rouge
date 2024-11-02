@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                      sh '''
-                        docker build --no-cache -f ../Docker/ -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG ../Docker
+                        docker build --no-cache -f Docker/ -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG Docker
                      '''   
                 }
             }
