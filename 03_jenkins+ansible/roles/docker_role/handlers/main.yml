@@ -1,0 +1,6 @@
+---
+# handlers file for docker_role
+- name: restart docker
+  systemd:
+    name: docker
+    state: restarted

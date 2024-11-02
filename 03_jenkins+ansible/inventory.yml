@@ -1,0 +1,7 @@
+all:
+  centos:
+    hosts:
+      centos-server:
+  ubuntu:
+    hosts:
+      ubuntu-server:
