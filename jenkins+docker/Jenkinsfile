@@ -10,7 +10,7 @@ pipeline {
     }
     agent none
     stages {
-        stage {'Build'}{
+        stage ('Build'){
             agent any
             steps {
                 script {
@@ -20,7 +20,7 @@ pipeline {
                 }
             }
         }
-        stage {'Test'}{
+        stage ('Test'){
             agent any
             steps {
                 script {
@@ -36,7 +36,7 @@ pipeline {
                 }
             }
         }
-        stage {'Release'}{
+        stage ('Release'){
             agent any
             steps {
                 script {
