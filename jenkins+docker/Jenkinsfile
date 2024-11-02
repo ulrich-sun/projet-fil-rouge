@@ -15,7 +15,7 @@ pipeline {
             steps {
                 script {
                      sh '''
-                        docker build --no-cache -f ../Docker/ -t $DOCKER_USERNAME:$IMAGE_NAME:$IMAGE_TAG ../Docker
+                        docker build --no-cache -f ../Docker/ -t $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG ../Docker
                      '''   
                 }
             }
@@ -26,7 +26,7 @@ pipeline {
                 script {
                     sh '''
                         docker ps -a | grep -i $IMAGE_NAME && docker rm -f $IMAGE_NAME
-                        docker run --rm -dp $SERVER_PORT:$CONTAINER_PORT --name $IMAGE_NAME $DOCKER_USERNAME:$IMAGE_NAME:$IMAGE_TAG
+                        docker run --rm -dp $SERVER_PORT:$CONTAINER_PORT --name $IMAGE_NAME $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG
                         sleep 5
                         curl -I http://$SERVER_IP:$SERVER_PORT | grep -i "200"
                         docker stop $IMAGE_NAME
@@ -42,7 +42,7 @@ pipeline {
                 script {
                     sh '''
                         echo $DOCKERHUB_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-                        docker push   $DOCKER_USERNAME:$IMAGE_NAME:$IMAGE_TAG
+                        docker push   $DOCKER_USERNAME/$IMAGE_NAME:$IMAGE_TAG
                     '''
                 }
             }
