@@ -1,7 +1,8 @@
 all:
-  centos:
-    hosts:
-      centos-server:
-  ubuntu:
-    hosts:
-      ubuntu-server:
+  children:
+    centos:
+      hosts:
+        centos-server:
+    ubuntu:
+      hosts:
+        ubuntu-server:
