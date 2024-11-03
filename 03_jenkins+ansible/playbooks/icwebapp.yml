@@ -1,5 +1,5 @@
 ---
-- name: start ic-group app
+- name: app
   host: all
   become: true
   roles:
