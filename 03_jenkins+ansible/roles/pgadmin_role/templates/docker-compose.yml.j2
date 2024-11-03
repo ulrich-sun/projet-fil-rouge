@@ -14,7 +14,7 @@ services:
         - '{{ pgadmin_data_volume }}:/var/lib/pgadmin'
 volumes:
   {{ pgadmin_data_volume }}:
-network: 
+networks: 
   {{ pgadmin_network }}:
     driver: bridge 
     name: {{ pgadmin_network }}

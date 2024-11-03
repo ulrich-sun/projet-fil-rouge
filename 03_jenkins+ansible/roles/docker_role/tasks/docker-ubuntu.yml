@@ -36,7 +36,7 @@
   service:
     name: docker
     state: started
-    enable: true
+    enabled: true
   become: true
 
 - name: add user to group docker
@@ -44,7 +44,7 @@
     name: "{{ ansible_user }}"
     groups: docker
     append: yes
-    become: true 
+  become: true 
   notify: restart docker
 
 - name: install docker compose 
@@ -58,3 +58,4 @@
     name: docker-py
     state: present
     executable: pip3
+    extra_args: --break-system-packages
